@@ -127,7 +127,7 @@ public class AuthorizationController {
 		ClientDetails client = clientDetailsService.loadClientByClientId(clientId);
 		String role = (rolePrefix != null ? rolePrefix : "authorization_") + domain;
 
-		if (client.getAuthorities().stream().anyMatch(a -> role.equals(a.getAuthority()))) {
+		if (!client.getAuthorities().stream().anyMatch(a -> role.equals(a.getAuthority()))) {
 			throw new UnauthorizedDomainException();
 		}
 	}

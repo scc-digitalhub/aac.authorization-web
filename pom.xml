@@ -4,7 +4,7 @@
 
 	<groupId>it.smartcommunitylab.aac.authorization</groupId>
 	<artifactId>aac-authorization-web</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.3.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>aac-authorization</name>
@@ -14,6 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<aac.authorization.version>0.3.0-SNAPSHOT</aac.authorization.version>
 		<spring.version>4.3.4.RELEASE</spring.version>
+    <spring.boot.starter.version>1.4.2.RELEASE</spring.boot.starter.version>
     <spring-security-oauth-version>2.0.12.RELEASE</spring-security-oauth-version>
     <swagger.version>2.7.0</swagger.version>
 	</properties>
@@ -38,11 +39,10 @@
       <version>${aac.authorization.version}</version>
     </dependency>
 
-		<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
 		<dependency>
 		    <groupId>javax.servlet</groupId>
-		    <artifactId>servlet-api</artifactId>
-		    <version>2.5</version>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>3.1.0</version>
 		    <scope>provided</scope>
 		</dependency>
 
@@ -57,6 +57,14 @@
       <artifactId>springfox-swagger2</artifactId>
       <version>${swagger.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+      <version>${spring.boot.starter.version}</version>
+    </dependency>
+    
 
 	</dependencies>
 
@@ -75,7 +83,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<id>attach-javadoc</id>
