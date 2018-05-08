@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>it.smartcommunitylab.aac.authorization</groupId>
+	<artifactId>aac-authorization-web</artifactId>
+	<version>0.2.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>aac-authorization</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<aac.authorization.version>0.3.0-SNAPSHOT</aac.authorization.version>
+		<spring.version>4.3.4.RELEASE</spring.version>
+    <spring-security-oauth-version>2.0.12.RELEASE</spring-security-oauth-version>
+    <swagger.version>2.7.0</swagger.version>
+	</properties>
+
+	<dependencies>
+
+    <dependency>
+      <groupId>it.smartcommunitylab.aac.authorization</groupId>
+      <artifactId>aac-authorization</artifactId>
+      <version>${aac.authorization.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>it.smartcommunitylab.aac.authorization</groupId>
+      <artifactId>aac-authorization</artifactId>
+      <version>${aac.authorization.version}</version>
+    </dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>servlet-api</artifactId>
+		    <version>2.5</version>
+		    <scope>provided</scope>
+		</dependency>
+
+    <dependency>
+      <groupId>org.springframework.security.oauth</groupId>
+      <artifactId>spring-security-oauth2</artifactId>
+      <version>${spring-security-oauth-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${swagger.version}</version>
+    </dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+				<executions>
+					<execution>
+						<id>attach-javadoc</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<phase>install</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<nohelp>true</nohelp>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<phase>install</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+  <repositories>
+    <repository>
+      <id>SmartCommunity</id>
+      <url>http://repository.smartcommunitylab.it/content/groups/public</url>
+    </repository>
+    <repository>
+      <id>spring-milestone</id>
+      <name>Spring Maven MILESTONE Repository</name>
+      <url>http://maven.springframework.org/milestone</url>
+    </repository>
+    <repository>
+      <id>spring-snnapshot</id>
+      <name>Spring Maven SNAPSHOT Repository</name>
+      <url>http://maven.springframework.org/snapshot</url>
+    </repository>
+  </repositories>
+  
+	<distributionManagement>
+		<repository>
+			<id>SmartCommunityLab-releases</id>
+			<url>http://repository.smartcommunitylab.it/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>SmartCommunityLab-snapshots</id>
+			<url>http://repository.smartcommunitylab.it/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>
