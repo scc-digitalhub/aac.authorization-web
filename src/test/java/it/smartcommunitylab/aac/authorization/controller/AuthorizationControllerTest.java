@@ -189,7 +189,7 @@ class AuthorizationControllerTestConfig {
 	/**
 	 * 
 	 */
-	private static final List<SimpleGrantedAuthority> AUTHORITIES = Collections.singletonList(new SimpleGrantedAuthority("context:authorization_domain"));
+	private static final List<SimpleGrantedAuthority> AUTHORITIES = Collections.singletonList(new SimpleGrantedAuthority("authorization/domain:ROLE_PROVIDER"));
 
 	@Bean
 	public ResourceServerTokenServices getResourceServerTokenServices() {

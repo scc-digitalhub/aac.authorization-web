@@ -40,8 +40,8 @@ import it.smartcommunitylab.aac.authorization.model.FQname;
 public class AuthorizationController {
 
 	@Autowired
-	@Value("${authorization.roleprrefix}")
-	private String rolePrefix;
+	@Value("${authorization.contextSpace: authorization}")
+	private String contextSpace;
 
 	@Autowired
 	private AuthorizationHelper authorizationHelper;
@@ -125,7 +125,7 @@ public class AuthorizationController {
 		OAuth2Authentication auth = resourceServerTokenServices.loadAuthentication(parsedToken);
 		String clientId = auth.getOAuth2Request().getClientId();
 		ClientDetails client = clientDetailsService.loadClientByClientId(clientId);
-		String role = (rolePrefix != null ? rolePrefix : "authorization_") + domain;
+		String role = contextSpace + "/" + domain + ":ROLE_PROVIDER";
 
 		if (!client.getAuthorities().stream().anyMatch(a -> role.equals(a.getAuthority()))) {
 			throw new UnauthorizedDomainException();
