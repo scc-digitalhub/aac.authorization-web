@@ -58,7 +58,7 @@ import it.smartcommunitylab.aac.authorization.model.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = {
+@ContextConfiguration(classes = {MongoConfig.class,
 		AuthorizationControllerTestConfig.class }, loader = AnnotationConfigWebContextLoader.class, initializers = ConfigFileApplicationContextInitializer.class)
 public class AuthorizationControllerTest {
 
